@@ -1,0 +1,9 @@
+{
+  "jwtPrivateKey": "tickets_jwtPrivateKey",
+  "mongodb_user": "mongodb_user",
+  "db": "db",
+  "smtp_server": "smtp_server",
+  "smtp_port": "smtp_port",
+  "smtp_user": "smtp_user",
+  "smtp_password": "smtp_password"
+}
