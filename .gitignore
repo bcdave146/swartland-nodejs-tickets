@@ -3,3 +3,4 @@ coverage/
 logfile.log
 uncaughtExceptions.log
 setup.sh
+release-node-tickets-docker-swartland.sh

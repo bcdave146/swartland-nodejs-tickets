@@ -3,6 +3,7 @@ const cors = require("cors");
 
 // TO DELETE const instructors = require("../routes/instructors");
 const categories = require("../routes/categories");
+const locations = require("../routes/locations");
 const states = require("../routes/states");
 const assignees = require("../routes/assignees");
 const customers = require("../routes/customers");
@@ -29,13 +30,13 @@ module.exports = function (app) {
   app.use(cors(corsOptions), express.json()); // req.body object populated from the request to handle JSON type HTTP calls
   app.use("/api/states/", cors(corsOptions), states);
   app.use("/api/categories/", cors(corsOptions), categories);
+  app.use("/api/locations/", cors(corsOptions), locations);
   app.use("/api/assignees/", cors(corsOptions), assignees);
   app.use("/api/attachments/", cors(corsOptions), attachments);
   app.use("/api/tickets/", cors(corsOptions), tickets);
   app.use("/api/comments/", cors(corsOptions), comments);
   app.use("/api/sendemail/", cors(corsOptions), sendEmail);
   app.use("/api/customers/", cors(corsOptions), customers); // This tells express to route to customers module
-
   app.use("/api/users/", cors(corsOptions), users); // This tells express to route to users module
   app.use("/api/auth/", cors(corsOptions), auth); // This tells express to route to auth module
 

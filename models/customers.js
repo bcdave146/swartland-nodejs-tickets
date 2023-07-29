@@ -2,6 +2,7 @@ const mongoose = require("mongoose");
 const Joi = require("joi");
 
 const { Category, categorySchema } = require("./categories");
+const { locationSchema } = require("./locations");
 
 const customerSchema = new mongoose.Schema({
   customerNumber: {
@@ -32,6 +33,11 @@ const customerSchema = new mongoose.Schema({
     required: true,
     minlength: 7,
     maxlength: 16,
+  },
+  location: {
+    type: locationSchema,
+    ref: "Location",
+    required: true,
   },
   address: {
     type: String,
@@ -72,6 +78,7 @@ function validateCustomers(customer) {
     email: Joi.string().min(7).max(50).email().required(),
     phone: Joi.string().min(7).required(),
     address: Joi.string().min(5).max(255).required(),
+    locationId: Joi.objectId().required(),
     comments: Joi.string().max(2000),
     active: Joi.boolean(),
     clickUpActive: Joi.boolean(),

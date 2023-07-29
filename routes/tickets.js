@@ -130,6 +130,7 @@ router.post("/", auth, async (req, res) => {
         phone: customer.phone,
         address: customer.address,
         categories: customer.categories,
+        location: customer.location,
       },
       category: {
         _id: category._id,
@@ -239,6 +240,7 @@ router.put("/:id", auth, async (req, res) => {
       email: customer.email,
       address: customer.address,
       phone: customer.phone,
+      location: customer.location,
     };
     ticket.category = {
       _id: category._id,

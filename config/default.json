@@ -1,5 +1,5 @@
 {
   "jwtPrivateKey": "",
-  "db": "@localhost:27017/tickets",
+  "db": "@localhost:27017/tickets-swartland",
   "mongodb_user": ""
 }

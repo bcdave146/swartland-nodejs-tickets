@@ -16,7 +16,7 @@ module.exports = function () {
   // Error logging to file etc... using winston
   winston.add(winston.transports.File, { filename: "logfile.log" }); // Add transport to winston - console is default.
   winston.add(winston.transports.MongoDB, {
-    db: "mongodb://nodejs:nodejs@localhost:27017/packs",
+    db: "mongodb://swartland:swartland@localhost:27017/tickets-swartland",
     level: "error",
   });
 };

@@ -4,6 +4,7 @@ const auth = require("../middleware/auth");
 const admin = require("../middleware/admin");
 const { Customer, validateCustomers } = require("../models/customers");
 const { Category, categorySchema } = require("../models/categories");
+const { Location, validLocation } = require("../models/locations");
 const Counter = require("../models/counter");
 const router = express.Router();
 
@@ -71,6 +72,10 @@ router.post(
       }
     }
 
+    // location
+    const location = await Location.findById(req.body.locationId);
+    if (!location) return res.status(400).send("Location not found.");
+
     const customer = new Customer({
       customerNumber,
       name: req.body.name,
@@ -79,6 +84,11 @@ router.post(
       phone: req.body.phone,
       address: req.body.address,
       comments: req.body.comments,
+      location: {
+        _id: location._id,
+        name: location.name,
+        color: location.color,
+      },
       active: req.body.active,
       clickUpActive: req.body.clickUpActive,
       gitHubActive: req.body.gitHubActive,
@@ -115,6 +125,10 @@ router.put("/:id", async (req, res) => {
     return res.status(400).send("Invalid category IDs");
   }
 
+  // location
+  const location = await Location.findById(req.body.locationId);
+  if (!location) return res.status(400).send("Location not found.");
+
   const customer = await Customer.findByIdAndUpdate(
     req.params.id,
     {
@@ -124,6 +138,11 @@ router.put("/:id", async (req, res) => {
       phone: req.body.phone,
       address: req.body.address,
       comments: req.body.comments,
+      location: {
+        _id: location._id,
+        name: location.name,
+        color: location.color,
+      },
       active: req.body.active,
       clickUpActive: req.body.clickUpActive,
       gitHubActive: req.body.gitHubActive,

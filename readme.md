@@ -39,5 +39,5 @@ export tickets_jwtPrivateKey=[SecertPrivateKey]
 Example command to start the docker app:
 sudo docker run -m "300m" --memory-swap "300M" --network host --name vidly-nodejs-endpoint --restart unless-stopped -e "PORT=5010" -e "db=@localhost:27017/packs" -e "mongodb_user=nodejs:nodejs" -e "vidly_jwtPrivateKey=SecertPrivateKey" -d john146/javascript-apps:packs-nodejs-endpoint
 
-http://178.62.84.58:5010/api/instructors
-http://178.62.84.58:5010/api/prodcuts
+http://178.62.84.58:5020/api/
+http://178.62.84.58:5020/api/
